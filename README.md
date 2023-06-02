@@ -1,4 +1,4 @@
-#### LFSR
+## LFSR
 
 The LFSR module operates on each rising edge of the clock signal and utilizes flip-flops to store the 
 current state of the register and perform the necessary shift and feedback operations.
@@ -48,5 +48,5 @@ The module provides the current state of the LFSR as the output, allowing you to
 for various applications that require deterministic yet seemingly random behavior.
 
 
-# For the complete model of an LFSR with "n" bits, you can refer to the following resource:
+* For the complete model of an LFSR with "n" bits, you can refer to the following resource:
 xilinx.com/support/documentation/application_notes/xapp052.pdf

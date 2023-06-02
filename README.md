@@ -39,7 +39,8 @@ The specific feedback tap configuration you have chosen produces a pseudo-random
 sequence of 3-bit values that repeat every 7 clock cycles.
 
 * In summary
-* 
+
+
 the LFSR module implements a pseudo-random sequence generator
 using a linear feedback shift register. The generated sequence appears random,
 but it follows a repeating pattern determined by the feedback function and the number of bits in the LFSR.

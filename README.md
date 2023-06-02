@@ -10,7 +10,7 @@ The key operations of the LFSR are as follows:
  When the reset signal is low, the LFSR is cleared to an initial state. In your code, the 
  initial state is set to 'b1 (binary 1).
 
-* Enable:*
+*Enable:*
  The LFSR can be enabled by activating the enable signal ('enb').
  When the enable signal is high, the LFSR advances to the next state on each clock cycle.
 

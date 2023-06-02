@@ -46,3 +46,7 @@ using a linear feedback shift register. The generated sequence appears random,
 but it follows a repeating pattern determined by the feedback function and the number of bits in the LFSR.
 The module provides the current state of the LFSR as the output, allowing you to utilize the pseudo-random sequence
 for various applications that require deterministic yet seemingly random behavior.
+
+כםר
+# For the complete model of an LFSR with "n" bits,
+# you can refer to the following resource: xilinx.com/support/documentation/application_notes/xapp052.pdf

@@ -1,0 +1,30 @@
+module LFSR #(parameter n = 3) (
+    input clk,               // Clock signal
+    input reset_n,           // Reset signal (active low)
+    input enb,               // Enable signal
+    input [n-1:0] lfsr_out   // LFSR output
+);
+    reg [n-1:0] Q_reg, Q_next;  // Registers to hold current and next state of the LFSR
+    reg Q_T;                    // Register to store the XOR result of feedback bits
+    
+    // Positive edge-triggered flip-flop for clock and negative edge-triggered for reset
+    always @(posedge clk, negedge reset_n) begin
+        if (~reset_n) begin
+            Q_reg <= 'b1;        // Asynchronously reset the LFSR to initial state 'b1
+        end else if (enb) begin
+            Q_reg <= Q_next;     // Load next state into Q_reg when enabled
+        end else begin
+            Q_reg <= Q_reg;      // Hold the current state of Q_reg
+        end
+    end
+    
+    // Combinational logic to calculate next state based on current state
+    always @(*) begin
+        Q_T = Q_reg[n-2] ^ Q_reg[n-1];       // XOR operation between second-to-last and last bit
+        Q_next = {Q_reg[n-2:0], Q_T};        // Concatenate Q_reg[n-2:0] with Q_T to form next state
+    end
+    
+    // Assign current state of LFSR to output
+    assign lfsr_out = Q_reg;
+    
+endmodule

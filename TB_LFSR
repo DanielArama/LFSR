@@ -1,0 +1,33 @@
+module TB_LFSR(
+
+    );
+     
+    localparam n=3;
+    reg clk =1'b0;
+    reg enb =1'b1;
+    reg reset_n =1'b0;
+    
+    wire [n-1:0] Q;
+    
+    LFSR #(.n(n))  UUT (
+    .clk(clk),
+    .reset_n(reset_n),
+    .enb(enb),
+    .lfsr_out(Q)
+    );
+    
+    always begin
+    #1; clk =~clk;
+    end
+    
+    
+    initial begin
+        reset_n=1'b0;
+        enb =1'b1;
+        #9;
+        reset_n=1'b1;
+        enb =1'b1;
+        #35;
+        $stop;
+    end
+endmodule
